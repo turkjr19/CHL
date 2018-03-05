@@ -27,7 +27,7 @@ p + geom_bar(stat="identity", fill="steelblue") +
   theme_minimal() + 
   coord_flip() + 
   ggtitle("2018 NHL Draft Rank OHL Forwards") +
-  labs(x="", y="Points/GP")
+  labs(x="", y="Primary Points per GP")
 
 
 
