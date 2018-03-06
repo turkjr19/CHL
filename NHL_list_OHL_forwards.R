@@ -21,11 +21,25 @@ write.csv(tableau, file = paste(Sys.Date(), sep="_","OHL_forwards.csv"), row.nam
 
 #********************************************************************************************
 #create bar plot
-
 p <-ggplot(tableau, aes(x = reorder(Name, P1.GP), y = P1.GP))
 p + geom_bar(stat="identity", fill="steelblue") + 
   theme_minimal() + 
   coord_flip() + 
+  ggtitle("2018 NHL Draft Rank OHL Forwards") +
+  labs(x="", y="Primary Points per GP")
+
+#create a stacked bar plot of A1.GP and G.GP ordered by P.GP
+#order prospects by descending P.GP
+attach(prospects)
+  plotPrimaryPerGame <- prospects[order(-P.GP),]
+detach(prospects)
+
+#plot a stacked bar plot of A1.GP and G.GP
+plotPrimaryPerGame %>% 
+  gather(PrimaryPoints, value, A1.GP,G.GP) %>%
+  ggplot(aes(x = Name, y = value, fill = PrimaryPoints)) + 
+  geom_bar(stat = "identity") +
+  coord_flip()+ 
   ggtitle("2018 NHL Draft Rank OHL Forwards") +
   labs(x="", y="Primary Points per GP")
 
