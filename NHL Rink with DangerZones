@@ -1,6 +1,8 @@
 #Rscript for NHL rink from Prashanth Iyer
-##This code written by Prashanth Iyer who can be found on twitter#####
-##@iyer_prashanth and is a really good follow  
+##This code written by Prashanth Iyer who can be found on Twitter
+##@iyer_prashanth and is a really good follow
+
+##I have added code to draw HD and MD zones.
 
 fun.draw_rink <- function() {
   
@@ -140,20 +142,6 @@ fun.draw_rink <- function() {
     geom_path(data = data.frame(y = -22 + 15 * cos(theta), x = -69 + 15 * sin(theta)), color = 'red') + 
     geom_path(data = data.frame(y = -22 + 15 * cos(theta), x = 69 + 15 * sin(theta)), color = 'red') + 
     
-    #high danger and medium danger zones outline only
-    #geom_segment(aes(x = 69, y = 22, xend = 54, yend = 22), color = 'black', size = .5) +
-    #geom_segment(aes(x = 69, y = -22, xend = 54, yend = -22), color = 'black', size = .5) +
-    #geom_segment(aes(x = 54, y = 22, xend = 54, yend = 7.5), color = 'black', size = .5) +
-    #geom_segment(aes(x = 54, y = 7.5, xend =40, yend = 7.5), color = 'black', size = .5) +
-    #geom_segment(aes(x = 40, y = 7.5, xend = 40, yend = -7.5), color = 'black', size = .5) +
-    #geom_segment(aes(x = 40, y = -7.5, xend = 54, yend = -7.5), color = 'black', size = .5) +
-    #geom_segment(aes(x = 54, y = -7.5, xend = 54, yend = -22), color = 'black', size = .5) +
-    #geom_segment(aes(x = 69, y = -22, xend = 89, yend = -7.5), color = 'black', size = .5) +
-    #geom_segment(aes(x = 69, y = 22, xend = 89, yend = 7.5), color = 'black', size = .5) +
-  #geom_segment(aes(x = 89, y = 7.5, xend = 69, yend = 7.5), color = 'black', size = .5) +
-  #geom_segment(aes(x = 89, y = -7.5, xend = 69, yend = -7.5), color = 'black', size = .5) +
-  #geom_segment(aes(x = 69, y = -7.5, xend = 69, yend = 7.5), color = 'black', size = .5) +
-  
   #high danger and medium danger zones filled with outlines
   geom_polygon(data = data.frame(x = c(89, 69, 69, 89, 69, 54, 54, 40, 40, 54, 54, 69, 89)),
                  y = c(7.5, 7.5, -7.5, -7.5, -22, -22, -7.5, -7.5, 7.5, 7.5, 22, 22, 7.5),
